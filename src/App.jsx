@@ -8,20 +8,26 @@ import Contact from "./pages/Contact";
 import ProductSingle from "./pages/ProductSingle";
 import NotFoundPage from "./pages/NotFoundPage";
 
+// Context Api
+
+import { GlobalProvider } from "./context/GlobalContext";
+
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route Component={DefaultLayout}>
-            <Route path="*" Component={NotFoundPage} />
-            <Route index Component={HomePage} />
-            <Route path="/Products" Component={Products} />
-            <Route path="/Contact" Component={Contact} />
-            <Route path="/ProductSingle/:id" Component={ProductSingle} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route Component={DefaultLayout}>
+              <Route path="*" Component={NotFoundPage} />
+              <Route index Component={HomePage} />
+              <Route path="/Products" Component={Products} />
+              <Route path="/Contact" Component={Contact} />
+              <Route path="/ProductSingle/:id" Component={ProductSingle} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </>
   );
 }

@@ -1,6 +1,21 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductList({ actData }) {
+export default function ProductList() {
+  const urlApi = "https://fakestoreapi.com/products";
+  //prodotti Api
+  const [api, setApi] = useState(urlApi);
+  const [actData, setActData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setActData(data);
+      });
+  }, [api]);
+
   return (
     <>
       {actData?.map((pro) => {

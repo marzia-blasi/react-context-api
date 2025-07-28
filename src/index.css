@@ -1,0 +1,15 @@
+@import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ededed;
+}
+
+.container-light {
+  width: 50%;
+}
